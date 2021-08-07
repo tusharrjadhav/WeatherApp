@@ -85,6 +85,9 @@ class SelectCityFragment : Fragment() {
         } else {
             sharedViewModel.findCityByName(search)
         }
+        val size = selectCityAdapter.dataSet.size
+        selectCityAdapter.dataSet.clear()
+        selectCityAdapter.notifyItemRangeRemoved(0, size)
         selectCityAdapter.dataSet = filteredDataList.toMutableList()
     }
 
