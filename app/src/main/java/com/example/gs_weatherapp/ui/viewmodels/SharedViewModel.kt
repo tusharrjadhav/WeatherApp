@@ -7,11 +7,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.example.gs_weatherapp.GSWeatherApp
+import com.example.gs_weatherapp.R
 import com.example.gs_weatherapp.model.GetCurrentWeatherResult
 import com.example.gs_weatherapp.model.GetForecastWeatherResult
 import com.example.gs_weatherapp.db.City
 import com.example.gs_weatherapp.services.CitiesWeatherRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class SharedViewModel(private val repository: CitiesWeatherRepository) : ViewModel() {
 
@@ -24,7 +27,13 @@ class SharedViewModel(private val repository: CitiesWeatherRepository) : ViewMod
 
     fun getAllCities() : LiveData<MutableList<City>> {
         viewModelScope.launch {
-            allCities.value = repository.cityDao.getAll().toMutableList()
+            var allCity: List<City>
+            withContext(Dispatchers.Default) {
+                allCity = repository.cityDao.getAll()
+            }
+            withContext(Dispatchers.Main) {
+                allCities.value = allCity.toMutableList()
+            }
         }
         return allCities
     }
@@ -60,6 +69,10 @@ class SharedViewModel(private val repository: CitiesWeatherRepository) : ViewMod
 
     fun navigateBack(navController: NavController) {
         navController.popBackStack()
+    }
+
+    fun navigateToInfoDialog(navController: NavController) {
+        navController.navigate(R.id.action_mainFragment_to_infoDialog)
     }
 }
 

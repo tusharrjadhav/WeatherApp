@@ -16,7 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class CityDAOTest {
+class CityDaoTest {
     private lateinit var cityDao: CityDao
     private lateinit var db: WeatherRoomDatabase
 

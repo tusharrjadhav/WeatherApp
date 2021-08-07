@@ -48,7 +48,7 @@ class SelectCityAdapter(
                     field.isFavorite = true
                 }
                 setOnClickListener {
-                    if (selectedItems.size >= 7 && isChecked) {
+                    if (selectedItems.size >= 6 && isChecked) {
                         isChecked = false
                         Toast.makeText(context,
                             "You've reached the maximum allowed cities",

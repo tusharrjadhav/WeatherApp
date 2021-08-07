@@ -21,7 +21,7 @@ class SelectCityFragment : Fragment() {
 
     private lateinit var selectCityAdapter: SelectCityAdapter
     private lateinit var selectedFavoriteCities: List<City>
-    private lateinit var citiesList: List<City>
+    private var citiesList = mutableListOf<City>()
     private lateinit var binding: SelectCityFragmentBinding
     private val sharedViewModel: SharedViewModel by activityViewModels() {
         SharedViewModelFactory(GSWeatherApp.userRepository)
@@ -32,7 +32,6 @@ class SelectCityFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = SelectCityFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,7 +50,7 @@ class SelectCityFragment : Fragment() {
         }
 
         binding.rvMultiSelect.layoutManager = LinearLayoutManager(requireContext())
-        selectCityAdapter = SelectCityAdapter(ArrayList())
+        selectCityAdapter = SelectCityAdapter(mutableListOf())
         // get selected cities
         sharedViewModel.getAllFavoriteCities().observe(viewLifecycleOwner) {
             selectedFavoriteCities = it
