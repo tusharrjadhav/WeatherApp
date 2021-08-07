@@ -38,8 +38,8 @@ class CityDaoTest {
     @Throws(Exception::class)
     fun writeUserAndReadInList() {
         // insert a city object
-        val coord = Coord(35.494419, 33.888939)
-        val city = City(276781, "Beirut", "Lebanon")
+        val coord = Coord(34.0, 67.0)
+        val city = City(781, "Mumbai", "India")
         city.coord = coord
         val cityList = ArrayList<City>()
         cityList.add(city)
