@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="icon">icon</string>
+    <string name="select_cities">Select your favorite cities</string>
+
+    <string name="got_it">Got It</string>
+
+    <string name="manage_cities_rule">About Open Weather App</string>
+    <string name="manage_cities_alert">Weather forecast app shows weather forecast for multiple cities from your choice.
+        \nYou can enter max 6 cities.</string>
+    <string name="search_city_name">Search by city name or country</string>
+
+    <string name="select_city">Select Cities</string>
+    <string name="select">Select</string>
+
+    <string name="something_wrong">Error loading weather info. Please try again.</string>
+
+    <string name="no_internet">Please check your internet connectivity and try again.</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="remove_alert">Are you sure you want to remove this city from favorites?</string>
+    <string name="description">Description</string>
+    <string name="min_max_temp">min Temp / max Temp</string>
+    <string name="wind">Wind</string>
+
+</resources>

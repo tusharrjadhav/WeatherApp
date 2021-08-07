@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.gs_weatherapp.ui.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_infoDialog"
+            app:destination="@id/infoDialog" />
+        <action
+            android:id="@+id/action_mainFragment_to_selectCityFragment"
+            app:destination="@id/selectCityFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_citiesWeatherFragment"
+            app:destination="@id/citiesWeatherFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/infoDialog"
+        android:name="com.example.gs_weatherapp.ui.InfoDialog"
+        android:label="InfoDialog" />
+    <fragment
+        android:id="@+id/selectCityFragment"
+        android:name="com.example.gs_weatherapp.ui.SelectCityFragment"
+        android:label="select_city_fragment"
+        tools:layout="@layout/select_city_fragment" >
+        <action
+            android:id="@+id/action_selectCityFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/citiesWeatherFragment"
+        android:name="com.example.gs_weatherapp.ui.CitiesWeatherFragment"
+        android:label="cities_weather_fragment"
+        tools:layout="@layout/cities_weather_fragment">
+        <argument
+            android:name="selectedCity"
+            app:argType="integer"/>
+        <argument
+            android:name="selectedName"
+            app:argType="string"/>
+        <argument
+            android:name="latitude"
+            app:argType="long" />
+        <argument
+            android:name="longitude"
+            app:argType="long"/>
+    </fragment>
+</navigation>
